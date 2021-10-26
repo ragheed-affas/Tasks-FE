@@ -35,7 +35,7 @@ function Task({task, fetchTasks}) {
       <input
         id={task._id}
         type="checkbox"
-        onChange={(e) => patchTask({ ...t, done: e.targetask.checked })}
+        onChange={(e) => patchTask({ ...task, done: e.target.checked })}
         checked={task.done}
         style={{
           marginRight: 10
