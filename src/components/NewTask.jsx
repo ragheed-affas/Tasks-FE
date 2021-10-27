@@ -4,15 +4,18 @@ import { fetchAddTask  } from '../api'
 function NewTask({ fetchTasks }) {
   const [newTask, setNewTask] = useState('')
   const [isLoading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const addTask = async () => {
     setLoading(true)
-    const { data, err } = await fetchAddTask(newTask)
-    if (data) {
-      setLoading(false)
+    const res = await fetchAddTask(newTask)
+    if (!res.data.msg) {
       setNewTask('')
       fetchTasks()
+    } else {
+      setError(res.data.msg)
     }
+    setLoading(false)
   }
 
   return (
@@ -28,7 +31,10 @@ function NewTask({ fetchTasks }) {
       <textarea
         type="text"
         value={isLoading ? 'saving...' : newTask}
-        onChange={(e) => setNewTask(e.target.value)}
+        onChange={(e) => {
+          setNewTask(e.target.value)
+          setError(null)
+        }}
         style={{
           width: '100%',
           border: 'none',
@@ -42,6 +48,15 @@ function NewTask({ fetchTasks }) {
         placeholder="new task..."
         disabled={isLoading}
       />
+        <div
+          style={{
+            fontSize: 12,
+            margin: '10px 0',
+            color: '#ff0000',
+            height: 14
+          }}>
+      {error ? `error: ${error}` : ''}
+        </div>
       <button
         type="submit"
         style={{

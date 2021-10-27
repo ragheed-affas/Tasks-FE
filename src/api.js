@@ -18,9 +18,12 @@ export const fetchAddTask = async (newTask) => {
       body: JSON.stringify({task: newTask, done: false}),
       headers: {"Content-type": "application/json"}
     })
+    console.log(res)
     const data = await res.json()
+    console.log(data)
     return { data }
   } catch (err) {
+    console.log(err)
     return { err }
   }
 }
