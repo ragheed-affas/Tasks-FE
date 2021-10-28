@@ -9,7 +9,7 @@ export default {
   server: {
     host: '0.0.0.0',
     hmr: {
-      port: process.env.PORT || 443,
+      port: 443,
     }
   }
 }
