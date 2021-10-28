@@ -2,7 +2,7 @@
   "name": "ReplitReactjsProject",
   "version": "0.0.1",
   "scripts": {
-    "start": "vite build",
+    "start": "vite",
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview"
