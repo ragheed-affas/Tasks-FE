@@ -18,6 +18,12 @@ function NewTask({ fetchTasks }) {
     setLoading(false)
   }
 
+  const onKeyDown = (e) => {
+    if(e.metaKey && e.which === 13) { // command + enter
+      addTask()
+    }
+  }
+
   return (
     <form
       style={{
@@ -35,6 +41,7 @@ function NewTask({ fetchTasks }) {
           setNewTask(e.target.value)
           setError(null)
         }}
+        onKeyDown={onKeyDown}
         style={{
           width: '100%',
           border: 'none',
