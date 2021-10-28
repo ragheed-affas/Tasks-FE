@@ -2,7 +2,7 @@
   "name": "ReplitReactjsProject",
   "version": "0.0.1",
   "scripts": {
-    "start": "vite --open --port $PORT",
+    "start": "vite --port $PORT",
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview"
