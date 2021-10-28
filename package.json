@@ -2,7 +2,7 @@
   "name": "ReplitReactjsProject",
   "version": "0.0.1",
   "scripts": {
-    "start": "webpack-dev-server --mode development --hot --open --port $PORT",
+    "start": "vite --open --port $PORT",
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview"
